@@ -10,6 +10,7 @@ from keras.datasets import imdb
 from keras.preprocessing import sequence
 
 def data_load_and_preproccess(word_size,sequence_length):
+    print("Data loading started")
     np_load_old = np.load
     np.load = lambda *a,**k: np_load_old(*a, allow_pickle=True, **k)
     (x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=word_size, start_char=None,
@@ -23,6 +24,7 @@ def data_load_and_preproccess(word_size,sequence_length):
     #Dictionary of vocabolary (int encoding value, word)
     vocabolary_dict_encode_first = dict((v,k) for k,v in vocabolary_dict.items())
     vocabolary_dict_encode_first[0] = '<PAD>'
+    print("Data loading completed")
     return x_train, y_train, x_test, y_test,vocabolary_dict_encode_first
 
  
