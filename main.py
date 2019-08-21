@@ -25,16 +25,22 @@ model_properties = {
         "epochs" : 10,
         }
 
-if(len(sys.argv)==2):
-    action = sys.argv[1]
-    model = Model(model_properties)
-    if action == 'CNN-static':
-        model.cnn_static()
-    else:
-        model.cnn_non_static()
-else:
-    print('please run like this : python main.py [model_name]')
-    print('please select model_name among [CNN-rand, CNN-static, CNN-non-static ]')
+model = Models(model_properties)
+model.cnn_non_static()
+
+from data_load_and_preproccess import data_load_and_preprocess_csv
+x_data, y_data = 
+print(model.predict("data/test.csv",500))
+#if(len(sys.argv)==2):
+#    action = sys.argv[1]
+#    model = Model(model_properties)
+#    if action == 'CNN-static':
+#        model.cnn_static()
+#    else:
+#        model.cnn_non_static()
+#else:
+#    print('please run like this : python main.py [model_name]')
+#    print('please select model_name among [CNN-rand, CNN-static, CNN-non-static ]')
     
 
 
